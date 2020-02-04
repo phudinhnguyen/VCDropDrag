@@ -1,0 +1,13 @@
+.createPlace{
+  display: inline-block;
+  border: 1px solid black;
+  width: 200px;
+  height: 50vh;
+}
+
+.dropPlace{
+  display: inline-block;
+  border: 1px solid black;
+  width: 200px;
+  height: 50vh;
+}
