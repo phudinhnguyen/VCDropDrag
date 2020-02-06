@@ -10,11 +10,24 @@
 
 <body>
 
+    <div class="dragPlace" >
+        
+    </div>
+
     <script src="../build/bundle.js"></script>
-    <script>        
-        const dragble = new _.createDragable({class: 'dragable'});
-        dragble.addItem('item');
+    <script>     
+        // getDragPlace
+        let dragPlace = document.getElementsByClassName('dragPlace')[0];
+        // create 
+        const dropDrap = new _.DropDrap();          
+            const container = dropDrap.createContainer('container');        
+            container.addItem('item')
+            container.addItem('item')
+            container.addItem('item')
+            container.addItem('item')  
+            dragPlace.appendChild(container);
+        
     </script>
 </body>
 
-</html>
+</html
