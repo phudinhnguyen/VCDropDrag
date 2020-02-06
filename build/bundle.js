@@ -91,11 +91,11 @@ var _ =
 /*!**********************!*\
   !*** ./src/index.ts ***!
   \**********************/
-/*! exports provided: createDragable */
+/*! exports provided: DropDrap */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"createDragable\", function() { return createDragable; });\nfunction createDragable(obj) {\n  var container = document.createElement('div');\n  container.classList.add(\"\".concat(obj[\"class\"]));\n\n  var addItem = function addItem(className) {\n    var item = document.createElement('div');\n    item.classList.add(className);\n    container.appendChild(item);\n  };\n\n  return {\n    container: container,\n    addItem: addItem\n  };\n}\n\n//# sourceURL=webpack://_/./src/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"DropDrap\", function() { return DropDrap; });\nvar DropDrap = function DropDrap() {\n  var container;\n  var count = '1';\n\n  var createContainer = function createContainer(className) {\n    container = document.createElement('div');\n    container.classList.add(className); // handle dd\n\n    container.addEventListener('drop', function (ev) {\n      ev.preventDefault();\n      var data = ev.dataTransfer.getData(\"text\");\n      ev.target.appendChild(document.getElementById(data));\n    });\n    container.addEventListener('dragover', function (ev) {\n      ev.preventDefault();\n    });\n\n    container.addItem = function (className) {\n      var item = document.createElement('div');\n      item.classList.add(className);\n      item.setAttribute(\"id\", count);\n      item.setAttribute(\"draggable\", \"true\");\n      item.innerHTML = count;\n      item.addEventListener('drop', function (ev) {\n        ev.stopPropagation();\n        var id = ev.dataTransfer.getData(\"text\");\n        var keepElm = document.getElementById(id);\n        container.insertBefore(keepElm, ev.target);\n      });\n      item.addEventListener(\"dragover\", function (ev) {}); // handle dd\n\n      item.addEventListener(\"dragstart\", function (ev) {\n        ev.dataTransfer.setData(\"text\", ev.target.id);\n      });\n      container.appendChild(item);\n      count++;\n    };\n\n    return container;\n  };\n\n  return {\n    createContainer: createContainer\n  };\n}; // item.addEventListener('dragleave', (ev: any) => {\n//     ev.preventDefault();\n// });\n\n//# sourceURL=webpack://_/./src/index.ts?");
 
 /***/ })
 
