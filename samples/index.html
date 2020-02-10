@@ -20,14 +20,18 @@
         let dragPlace = document.getElementsByClassName('dragPlace')[0];
         // create 
         const dropDrap = new _.DropDrap();          
-            const container = dropDrap.createContainer('container');            
             const container1 = dropDrap.createContainer('container');            
-            container.addItem('item')
-            container.addItem('item')
-            container.addItem('item')
-            container.addItem('item')  
-            dragPlace.appendChild(container);
+            const container2 = dropDrap.createContainer('container');  
+            const container3 = dropDrap.createContainer('container');            
+            const container4 = dropDrap.createContainer('container');            
+            container1.addItem('item')
+            container1.addItem('item')
+            container1.addItem('item')
+            container1.addItem('item')  
             dragPlace.appendChild(container1);
+            dragPlace.appendChild(container2);
+            dragPlace.appendChild(container3);
+            dragPlace.appendChild(container4);
         
     </script>
 </body>
