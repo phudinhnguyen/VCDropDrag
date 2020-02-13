@@ -10,31 +10,29 @@
 
 <body>
 
-    <div class="dragPlace" >
+    <div class="dragPlace">
         <div class="container">
             <div class="item"></div>
             <div class="item"></div>
             <div class="item"></div>
             <div class="item"></div>
-        </div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>        
     </div>
 
     <script src="../build/bundle.js"></script>
-    <script>     
-        // getDragPlace
-        let dragPlace = document.getElementsByClassName('dragPlace')[0];
-        // create 
-        const dropDrap = new _.DropDrap();          
-            const container1 = dropDrap.createContainer('container');            
-            const container2 = dropDrap.createContainer('container');  
-            const container3 = dropDrap.createContainer('container');            
-            const container4 = dropDrap.createContainer('container');            
-            container1.addItem('item') 
-            dragPlace.appendChild(container1);
-            dragPlace.appendChild(container2);
-            dragPlace.appendChild(container3);
-            dragPlace.appendChild(container4);
+    <script>
         
+        // create 
+        const dropDrap = new _.DropDrap();        
+        const container = dropDrap.createContainer(document.getElementsByClassName('container')[0])        
+        const listItem = document.getElementsByClassName('item');
+        for (let i = 0; i < listItem.length; i++) {
+            container.addItem(listItem[i]);            
+        }
     </script>
 </body>
 
