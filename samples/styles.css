@@ -10,4 +10,9 @@
  height: 50px;
  background-color: gray;
  cursor: pointer;
+ font-size: 24px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: white;
 }
