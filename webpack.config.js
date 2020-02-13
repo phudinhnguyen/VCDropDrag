@@ -6,7 +6,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "build"),
     filename: './bundle.js',
-    library: '_',
+    library: 'DropDrap',
+    globalObject: 'this'
   },
   resolve: {
     extensions: ['.ts', '.js' ]
