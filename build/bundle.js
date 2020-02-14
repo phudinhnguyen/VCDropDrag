@@ -107,7 +107,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"context\", function() { return context; });\nvar context = {\n  keepElm: null,\n  containers: [],\n  adjacentContainer: function adjacentContainer(x, y) {\n    var _container,\n        _index = 0,\n        coorContainer;\n\n    while (_container = this.containers[_index++]) {\n      coorContainer = _container.getBoundingClientRect();\n\n      if (coorContainer.top <= y && coorContainer.right >= x && coorContainer.bottom >= y && coorContainer.left <= x) {\n        return this.containers[0];\n      }\n    }\n\n    return null;\n  }\n};\n\n//# sourceURL=webpack://DropDrap/./src/context.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"context\", function() { return context; });\nvar context = {\n  keepElm: null,\n  containers: [],\n  adjacentContainer: function adjacentContainer(x, y) {\n    var _container,\n        _index = 0,\n        coorContainer;\n\n    while (_container = this.containers[_index++]) {\n      coorContainer = _container.getBoundingClientRect();\n\n      if (coorContainer.top <= y && coorContainer.right >= x && coorContainer.bottom >= y && coorContainer.left <= x) {\n        return _container;\n      }\n    }\n\n    return null;\n  }\n};\n\n//# sourceURL=webpack://DropDrap/./src/context.ts?");
 
 /***/ }),
 

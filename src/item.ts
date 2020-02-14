@@ -36,7 +36,7 @@ export const createItem = function (container: HTMLElement, props?: IItemProps) 
         if (!nContainer) {
             return;
         }
-
+        
         item.container = nContainer;
         nContainer.insertBefore(context.keepElm, ev.target);
 

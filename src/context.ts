@@ -8,7 +8,7 @@ export const context: IContext = {
         while ((_container = this.containers[_index++])) {
             coorContainer = _container.getBoundingClientRect();
             if (coorContainer.top <= y && coorContainer.right >= x && coorContainer.bottom >= y && coorContainer.left <= x) {
-                return this.containers[0]
+                return _container;
             }
         }
         return null;
