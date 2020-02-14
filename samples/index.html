@@ -12,25 +12,25 @@
 
     <div class="dragPlace">
         <div class="container">
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-        </div>        
+        </div>
+        <div class="container">
+        </div>
     </div>
 
     <script src="../build/bundle.js"></script>
     <script>
-        
+
         // create 
-        const container = DropDrap.createContainer(document.getElementsByClassName('container')[0])        
-        const listItem = document.getElementsByClassName('item');
-        for (let i = 0; i < listItem.length; i++) {
-            container.addItem(listItem[i]);            
+        const container1 = DropDrap.createContainer({ elm: document.getElementsByClassName('container')[0] })
+        const container2 = DropDrap.createContainer({ elm: document.getElementsByClassName('container')[1] })
+
+        for (let i = 0; i < 10; i++) {
+            let item1 = container1.addItem({ className: "item" });
+            let item2 = container2.addItem({ className: "item" });
+
+            item1.innerHTML = "a" + i;
+            item2.innerHTML = "b" + i;
+
         }
     </script>
 </body>
