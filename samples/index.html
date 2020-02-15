@@ -10,27 +10,24 @@
 
 <body>
 
-    <div class="dragPlace">
-        <div class="container">
-        </div>
-        <div class="container">
-        </div>
+    <div id="dragPlace"></div>
     </div>
 
     <script src="../build/bundle.js"></script>
     <script>
 
         // create 
-        const container1 = DropDrap.createContainer({ elm: document.getElementsByClassName('container')[0] })
-        const container2 = DropDrap.createContainer({ elm: document.getElementsByClassName('container')[1] })
-
+        const container1 = DropDrap.createContainer({ className: "container" })
+        const container2 = DropDrap.createContainer({ className: "container" })
+        document.getElementById("dragPlace").append(container1, container2);
+        let temp1;
         for (let i = 0; i < 10; i++) {
             let item1 = container1.addItem({ className: "item" });
             let item2 = container2.addItem({ className: "item" });
 
             item1.innerHTML = "a" + i;
             item2.innerHTML = "b" + i;
-
+            temp1 = item1;
         }
     </script>
 </body>

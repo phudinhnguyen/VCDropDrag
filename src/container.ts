@@ -1,6 +1,7 @@
 import { IContainerProps, IItemProps } from "./types";
 import { context } from "./context";
 import { createItem } from "./item";
+import { id } from "./utils";
 
 
 export const createContainer = (props?: IContainerProps) => {
@@ -11,6 +12,7 @@ export const createContainer = (props?: IContainerProps) => {
         if (props?.className) {
             container.classList.add(props?.className);
         }
+        container.id = id();
         container.isDragItem;
         container.indexOfKeep;
         context.containers.push(container);

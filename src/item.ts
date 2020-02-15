@@ -1,6 +1,6 @@
 import { IItemProps } from "./types";
 import { context } from "./context";
-import { id } from "./utils";
+import { id,setReadonly } from "./utils";
 
 export const createItem = function (container: HTMLElement, props?: IItemProps) {
     const item = props?.elm || document.createElement("div");
@@ -36,22 +36,25 @@ export const createItem = function (container: HTMLElement, props?: IItemProps) 
         if (!nContainer) {
             return;
         }
-        
+
         item.container = nContainer;
         nContainer.insertBefore(context.keepElm, ev.target);
-
     }
 
     const itemOnDragOver = (ev: DragEvent) => {
         if (ev.target && ev.target instanceof HTMLElement && context.keepElm) {
+            const nContainer = context.adjacentContainer(ev.x, ev.y);
+            if (!nContainer) {
+                return;
+            }
             context.keepElm.style.opacity = '0.5';
-            container.isDragItem = true;
-            if (container.indexOfKeep! > getIndexOf(ev.target)) {
-                container.insertBefore(context.keepElm, ev.target)
-                container.indexOfKeep = getIndexOf(ev.target);
-            } else if (container.indexOfKeep! < getIndexOf(ev.target)) {
-                container.insertBefore(context.keepElm, ev.target.nextSibling)
-                container.indexOfKeep = getIndexOf(ev.target);
+            nContainer.isDragItem = true;
+            if (nContainer.indexOfKeep! > getIndexOf(ev.target)) {
+                nContainer.insertBefore(context.keepElm, ev.target)
+                nContainer.indexOfKeep = getIndexOf(ev.target);
+            } else if (nContainer.indexOfKeep! < getIndexOf(ev.target)) {
+                nContainer.insertBefore(context.keepElm, ev.target.nextSibling);
+                nContainer.indexOfKeep = getIndexOf(ev.target);
             }
         }
     }
@@ -73,5 +76,5 @@ export const createItem = function (container: HTMLElement, props?: IItemProps) 
     item.ondragleave = itemOnDragLeave;
     item.ondragstart = itemOnDragStart;
 
-    return item;
+    return setReadonly(item, ["ondrop", "ondragover", "ondragleave", "ondragstart"])
 }

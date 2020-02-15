@@ -13,3 +13,14 @@ export interface IContext {
     containers: HTMLElement[],
     adjacentContainer: (x: number, y: number) => HTMLElement | null
 }
+
+export interface IMessageTransfer {
+    id: string,
+    containerDesc: string, 
+    containerSrc: string
+}
+
+export interface IMessage {
+    containerDesc: HTMLElement, 
+    containerSrc: HTMLElement
+}
