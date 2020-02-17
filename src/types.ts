@@ -10,7 +10,7 @@ export interface IItemProps {
 
 export interface IContext {
     keepElm: HTMLElement | null,
-    containers: HTMLElement[],
+    containers: HTMLElement[],    
     adjacentContainer: (x: number, y: number) => HTMLElement | null
 }
 

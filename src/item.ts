@@ -49,7 +49,8 @@ export const createItem = function (container: HTMLElement, props?: IItemProps) 
             }
             context.keepElm.style.opacity = '0.5';
             nContainer.isDragItem = true;
-            if (nContainer.indexOfKeep! > getIndexOf(ev.target)) {
+            nContainer.indexOfKeep = getIndexOf(ev.target) + 1;
+            if (nContainer.indexOfKeep! > getIndexOf(ev.target)) {                
                 nContainer.insertBefore(context.keepElm, ev.target)
                 nContainer.indexOfKeep = getIndexOf(ev.target);
             } else if (nContainer.indexOfKeep! < getIndexOf(ev.target)) {
